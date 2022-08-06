@@ -1,8 +1,14 @@
-print('HELLLOOOOO')
+import whois
+import typer
 
-print("dem bien que ya este subiendo codigo aca!!!!!")
+app = typer.Typer()
 
-###testing code#####
+@app.command()
+
+def domain(name: str):
+    results = whois.whois(name)
+    print(f"{name} is registered by {results.name} - {results.org}")
 
 
-###testing code#####
+if __name__ == "__main__":
+    app() 
